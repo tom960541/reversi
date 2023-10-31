@@ -1,29 +1,14 @@
 #include <stdio.h>
 
-//參考wangicheng
-
+// 參考wangicheng
 
 int chess[8][8] = {};
 
-typedef struct vec2 vec2;
-struct vec2
+typedef struct vec2
 {
     int x, y;
-};
+} vec2;//宣告一個vec2結構，別名是vec2
 
-void printChess(void)
-{
-    for (int i = 0; i < 8; i++)
-    {
-        for (int j = 0; j < 8; j++)
-            if (chess[i][j] == 3)
-                printf("x");
-            else
-                printf("%d", chess[i][j]);
-        printf("\n");
-    }
-    return;
-}
 
 // 印出所有可下的座標
 void printNext(int next[8][8])
@@ -128,7 +113,6 @@ void checkNewStepByColor(int chess[8][8], int next[8][8], int color)
 
 int main()
 {
-    int address_x = 0, address_y = 0;
     for (int i = 0; i < 8; i++)
     {
         for (int j = 0; j < 8; j++)
@@ -139,7 +123,6 @@ int main()
     // 讀入給定座標
     vec2 pos;
     scanf("%d %d", &pos.x, &pos.y);
-    int color = chess[pos.x][pos.y];
 
     int ans1[8][8] = {0};
     checkNewStep(chess, ans1, pos);
